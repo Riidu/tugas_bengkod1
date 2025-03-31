@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Periksa extends Model
 {
+    use HasFactory; // Tambahkan ini
+
     protected $fillable = [
         'id_pasien',
         'id_dokter',
@@ -14,16 +17,18 @@ class Periksa extends Model
         'biaya_periksa',
     ];
 
-    public function dokter(){
+    public function dokter()
+    {
         return $this->belongsTo(User::class, 'id_dokter');
     }
 
-    public function pasien(){
+    public function pasien()
+    {
         return $this->belongsTo(User::class, 'id_pasien');
     }
 
-    public function detail_periksas(){
+    public function detail_periksas()
+    {
         return $this->hasMany(DetailPeriksa::class, 'id_periksa', 'id');
     }
-
 }

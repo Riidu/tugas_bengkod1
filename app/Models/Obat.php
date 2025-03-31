@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Obat extends Model
 {
@@ -16,8 +18,6 @@ class Obat extends Model
 
     public function detail_periksas(): HasMany
     {
-        return $this->hasMany(Detail_periksa::class, 'id_obat', 'id');
+        return $this->hasMany(DetailPeriksa::class, 'id_obat', 'id');
     }
-
-    //
 }
