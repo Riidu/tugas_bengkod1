@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,7 +12,7 @@ class Obat extends Model
     protected $fillable = [
         'nama_obat',
         'kemasan',
-        'harga',
+        'harga'
     ];
 
     public function detail_periksas(): HasMany

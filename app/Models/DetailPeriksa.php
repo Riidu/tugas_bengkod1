@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -12,7 +11,7 @@ class DetailPeriksa extends Model
 
     protected $fillable = [
         'id_periksa',
-        'id_obat',
+        'id_obat'
     ];
 
     public function periksa(): BelongsTo

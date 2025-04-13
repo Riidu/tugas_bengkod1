@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('periksas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_pasien')->constrained()->onDelete('cascade');
-            $table->unsignedBigInteger('id_dokter')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('id_pasien');
+            $table->unsignedBigInteger('id_dokter');
             $table->dateTime('tgl_periksa');
             $table->longText('catatan');
-            $table->bigInteger('biaya_periksa');
+            $table->bigInteger('biaya_pemeriksaan');
             $table->timestamps();
-
-            // Foreign key constraints
+            
+            // Tambahkan foreign key constraints
             $table->foreign('id_pasien')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('id_dokter')->references('id')->on('users')->onDelete('cascade');
         });
