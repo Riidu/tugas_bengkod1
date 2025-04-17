@@ -135,7 +135,7 @@
     
     .btn-success:hover {
       background-color:rgb(243, 120, 237);
-      border-color:rgb(234, 101, 212);
+      border-color:rgb(234, 101, 212); 
     }
     
     .btn-outline-primary {
