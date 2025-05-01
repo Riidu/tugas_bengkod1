@@ -92,7 +92,7 @@ class AuthController extends Controller
             'no_hp.required' => 'Nomor HP wajib diisi.',
         ]);
 
-        $user = User::create([
+        User::create([
             'nama' => $request->nama,
             'email' => $request->email,
             'password' => Hash::make($request->password),
@@ -101,14 +101,7 @@ class AuthController extends Controller
             'no_hp' => $request->no_hp,
         ]);
 
-        Auth::login($user);
-        $request->session()->regenerate();
-
-        if ($user->role === 'dokter') {
-            return redirect()->route('dokter.dashboard');
-        } elseif ($user->role === 'pasien') {
-            return redirect()->route('pasien.dashboard');
-        }
+        return redirect()->route('login')->with('success', 'Registrasi berhasil. Silakan login.');
     }
 
     /**
